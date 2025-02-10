@@ -100,3 +100,10 @@ $ docker pull mysql
 # docker run
 $ docker run --name localmysql -e MYSQL_ROOT_PASSWORD=coffee -p 3306:3306 -d mysql:latest
 ```
+
+
+### 참고할 github
+https://github.com/kdohyeon/order-system-toy
+
+### 넷플릭스 모작 github(모듈로 나눠서 동작 )
+https://github.com/kdohyeon/fcss-project
