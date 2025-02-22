@@ -107,3 +107,26 @@ https://github.com/kdohyeon/order-system-toy
 
 ### 넷플릭스 모작 github(모듈로 나눠서 동작 )
 https://github.com/kdohyeon/fcss-project
+
+### data.sql 과 schema.sql 을 먼저 실행후 run 하기
+
+### 요청방식
+GET 요청 (@RequestParam) :쿼리 파라미터를 사용하여 데이터를 전달,조회(GET)할 때 사용
+
+
+POST 요청 :
+1. @RequestParam + x-www-form-urlencoded ,새로 추가할 때 사용하며, 요청 본문(body)에 데이터를 포함
+2. @RequestBody + JSON :JSON 데이터를 body에 담아서 보내려면 @RequestBody를 사용
+
+
+PUT 요청 (수정): 기존 데이터를 수정할 때 사용,@RequestBody를 사용하여 JSON 데이터로 받는 것이 일반적
+
+
+//@RequestParam URL 쿼리 파라미터 또는 x-www-form-urlencoded 형식의 폼 데이터를 처리
+// JSON 형식의 데이터를 처리합니다. HTTP 요청 본문에 포함된 JSON 데이터를 Java 객체로 변환하여 사용
+
+
+### 포진키 걸린 테입블들을 지우는방법  
+SET foreign_key_checks = 0; 
+//지울려면 이걸먼저 처리해줘야 한다  
+//foreign_key 를 걸면 테이블이 다엮여 있기 때문에 그런걸 해지해주기 위해서 설정

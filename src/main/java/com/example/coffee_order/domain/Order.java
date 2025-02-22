@@ -8,9 +8,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Table(name = "orders")
 public class Order {
@@ -24,10 +22,10 @@ public class Order {
     private Timestamp orderedAt;
 
     //@MappedCollection(idColumn = "order_item_id", keyColumn = "order_id")는 Order 객체가 여러 개의 OrderItem을 포함할 수 있게 설정하는 방식
-    @MappedCollection(idColumn = "order_item_id", keyColumn = "order_id")
-    private List<OrderItem> orderItems = new ArrayList<>();
+    @MappedCollection(idColumn = "order_id", keyColumn = "order_item_id")
+    private Set<OrderItem> orderItems = new HashSet<>();
 
-    public Order(int customerId, List<OrderItem> orderItems) {
+    public Order(int customerId, Set<OrderItem> orderItems) {
         this.customerId = customerId;
         this.orderedAt = Timestamp.valueOf(LocalDateTime.now());
         this.orderItems = orderItems;
@@ -35,7 +33,7 @@ public class Order {
 
 
     public static Order newOrder(CreateOrder createOrder) {
-        List<OrderItem> items = new ArrayList<>();
+        Set<OrderItem> items = new HashSet<>();
 
         for (Map.Entry<Integer, Integer> entry : createOrder.getQuantityByProduct().entrySet()) {
             items.add(new OrderItem(entry.getKey(), entry.getValue()));
