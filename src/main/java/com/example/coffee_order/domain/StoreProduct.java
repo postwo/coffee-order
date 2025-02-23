@@ -1,11 +1,13 @@
 package com.example.coffee_order.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Getter
+@Builder
 @Table(name = "stores_products")
 public class StoreProduct {
     @Id
